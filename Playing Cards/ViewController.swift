@@ -8,10 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var deck = PlayingDeck()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        for _ in 0...25 {
+            print("\(deck.draw()!)")
+        }
     }
 
 
