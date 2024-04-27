@@ -25,10 +25,10 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="rank">
-                                        <integer key="value" value="3"/>
+                                        <integer key="value" value="9"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
