@@ -17,23 +17,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="KZ5-Tm-otx" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
-                                <rect key="frame" x="20" y="44" width="388" height="848"/>
+                                <rect key="frame" x="20" y="157.66666666666669" width="388" height="620.66666666666652"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" priority="750" constant="800" id="WFD-nB-bQg"/>
+                                    <constraint firstAttribute="width" secondItem="KZ5-Tm-otx" secondAttribute="height" multiplier="5:8" id="Yxe-fR-W75"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KZ5-Tm-otx" secondAttribute="trailing" constant="20" id="Bdw-bW-G7a"/>
-                            <constraint firstItem="KZ5-Tm-otx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="VH5-lo-gfL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KZ5-Tm-otx" secondAttribute="bottom" id="Y06-eL-zDr"/>
-                            <constraint firstItem="KZ5-Tm-otx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hCu-Pb-I3Z"/>
+                            <constraint firstItem="KZ5-Tm-otx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2Pr-Sb-roR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KZ5-Tm-otx" secondAttribute="trailing" constant="20" id="Bdw-bW-G7a"/>
+                            <constraint firstItem="KZ5-Tm-otx" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="CCF-XQ-XpS"/>
+                            <constraint firstItem="KZ5-Tm-otx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="VH5-lo-gfL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KZ5-Tm-otx" secondAttribute="bottom" constant="20" id="Y06-eL-zDr"/>
+                            <constraint firstItem="KZ5-Tm-otx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hCu-Pb-I3Z"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-494.20289855072468" y="-209.59821428571428"/>
+            <point key="canvasLocation" x="-915" y="-214"/>
         </scene>
     </scenes>
     <resources>

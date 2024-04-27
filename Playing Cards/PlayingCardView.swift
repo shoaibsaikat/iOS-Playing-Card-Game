@@ -7,6 +7,7 @@
 
 import UIKit
 
+@IBDesignable
 class PlayingCardView: UIView {
     private struct SizeRatio {
         static let cornerFontSizeToBoundsHeight: CGFloat =     0.085
@@ -38,8 +39,11 @@ class PlayingCardView: UIView {
         }
     }
     
+    @IBInspectable
     private(set) var rank: Int = 10 { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    @IBInspectable
     private(set) var suit: String = "❤️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    @IBInspectable
     private(set) var faceUp: Bool = true { didSet { setNeedsDisplay(); setNeedsLayout() } }
     
     private lazy var upperLeftCornerLabel = createCornerLabel()
