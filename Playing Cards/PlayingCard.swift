@@ -9,7 +9,7 @@ import Foundation
 
 struct PlayingCard: CustomStringConvertible {
     var description: String {
-        return "\(suit)\(rank)"
+        return "\(rank)\(suit)"
     }
     
     var suit: Suit
@@ -17,7 +17,7 @@ struct PlayingCard: CustomStringConvertible {
     
     enum Suit: String, CustomStringConvertible {
         var description: String {
-            return self.rawValue
+            return rawValue
         }
         
         case spades = "♠️"
@@ -30,7 +30,18 @@ struct PlayingCard: CustomStringConvertible {
     
     enum Rank: CustomStringConvertible {
         var description: String {
-            return "\(order)"
+            switch self {
+            case .ace:
+                return "A"
+            case .face(let x) where x == "j":
+                return "J"
+            case .face(let x) where x == "q":
+                return "Q"
+            case .face(let x) where x == "k":
+                return "K"
+            default:
+                return String(order)
+            }
         }
         
         case ace
