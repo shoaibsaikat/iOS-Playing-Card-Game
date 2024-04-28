@@ -14,6 +14,7 @@ class PlayingCardView: UIView {
         static let cornerRadiusToBoundsHeight: CGFloat =       0.06
         static let cornerOffsetToCornerRadius: CGFloat =       0.33
         static let faceCardImageSizeToBoundsSize: CGFloat =    0.60
+        static let backCardImageSizeToBoundsSize: CGFloat =    0.90
     }
     
     private var cornerRadius: CGFloat {
@@ -119,14 +120,15 @@ class PlayingCardView: UIView {
         UIColor.white.setFill()
         cardRect.fill()
         if faceUp {
-            if let faceCardImage = UIImage(named: rankString + suit, in: Bundle(for: self.classForCoder), compatibleWith: traitCollection) {
+            if let faceCardImage = UIImage(named: rankString, in: Bundle(for: self.classForCoder), compatibleWith: traitCollection) {
+//            if let faceCardImage = UIImage(named: rankString + suit, in: Bundle(for: self.classForCoder), compatibleWith: traitCollection) {
                 faceCardImage.draw(in: bounds.zoom(by: SizeRatio.faceCardImageSizeToBoundsSize))
             } else {
                 drawPips()
             }
         } else {
-            if let cardBackImage = UIImage(named: "cardback") {
-                cardBackImage.draw(in: bounds.zoom(by: 1.01))
+            if let cardBackImage = UIImage(named: "cardback", in: Bundle(for: self.classForCoder), compatibleWith: traitCollection) {
+                cardBackImage.draw(in: bounds.zoom(by: SizeRatio.backCardImageSizeToBoundsSize))
             }
         }
     }
