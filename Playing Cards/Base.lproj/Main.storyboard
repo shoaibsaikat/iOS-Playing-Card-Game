@@ -19,6 +19,7 @@
                             <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="KZ5-Tm-otx" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
                                 <rect key="frame" x="20" y="157.66666666666669" width="388" height="620.66666666666652"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" priority="750" constant="800" id="WFD-nB-bQg"/>
                                     <constraint firstAttribute="width" secondItem="KZ5-Tm-otx" secondAttribute="height" multiplier="5:8" id="Yxe-fR-W75"/>
@@ -30,10 +31,14 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="gdL-Xq-hvD" appends="YES" id="nI4-ze-8Ya"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="KZ5-Tm-otx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="2Pr-Sb-roR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KZ5-Tm-otx" secondAttribute="trailing" constant="20" id="Bdw-bW-G7a"/>
@@ -43,10 +48,18 @@
                             <constraint firstItem="KZ5-Tm-otx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="hCu-Pb-I3Z"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="playingCardView" destination="KZ5-Tm-otx" id="3hq-OZ-cxt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="gdL-Xq-hvD">
+                    <connections>
+                        <action selector="flipCard:" destination="BYZ-38-t0r" id="b9Y-Qf-ORE"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-915" y="-214"/>
+            <point key="canvasLocation" x="-1215" y="-514"/>
         </scene>
     </scenes>
     <resources>

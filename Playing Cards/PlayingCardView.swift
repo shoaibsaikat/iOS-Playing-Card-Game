@@ -10,11 +10,11 @@ import UIKit
 @IBDesignable
 class PlayingCardView: UIView {
     private struct SizeRatio {
-        static let cornerFontSizeToBoundsHeight: CGFloat =     0.085
-        static let cornerRadiusToBoundsHeight: CGFloat =       0.06
-        static let cornerOffsetToCornerRadius: CGFloat =       0.33
-        static let faceCardImageSizeToBoundsSize: CGFloat =    0.60
-        static let backCardImageSizeToBoundsSize: CGFloat =    0.90
+        static let cornerFontSizeToBoundsHeight: CGFloat        = 0.085
+        static let cornerRadiusToBoundsHeight: CGFloat          = 0.06
+        static let cornerOffsetToCornerRadius: CGFloat          = 0.33
+        static let faceCardImageSizeToBoundsSize: CGFloat       = 0.60
+        static let backCardImageSizeToBoundsSize: CGFloat       = 0.90
     }
     
     private var cornerRadius: CGFloat {
@@ -40,15 +40,26 @@ class PlayingCardView: UIView {
         }
     }
     
+    private var imageScaleSize = SizeRatio.faceCardImageSizeToBoundsSize { didSet { setNeedsDisplay() } }
+    
     @IBInspectable
-    private(set) var rank: Int = 10 { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    var rank: Int = 10 { didSet { setNeedsDisplay(); setNeedsLayout() } }
     @IBInspectable
-    private(set) var suit: String = "❤️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    var suit: String = "❤️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
     @IBInspectable
-    private(set) var faceUp: Bool = true { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    var faceUp: Bool = true { didSet { setNeedsDisplay(); setNeedsLayout() } }
     
     private lazy var upperLeftCornerLabel = createCornerLabel()
     private lazy var lowerRightCornerLabel = createCornerLabel()
+    
+    @objc func cardImageScalling(byPinch pinch: UIPinchGestureRecognizer) {
+        switch pinch.state {
+        case .changed, .ended:
+            imageScaleSize *= pinch.scale
+            pinch.scale = 1.0
+        default: break
+        }
+    }
     
     private func centeredAttributedString(_ string: String, size: CGFloat) -> NSAttributedString {
         var font = UIFont.preferredFont(forTextStyle: .body).withSize(size)
@@ -106,8 +117,7 @@ class PlayingCardView: UIView {
                 case 2:
                     pipString.draw(in: pipRect.leftHalf)
                     pipString.draw(in: pipRect.rightHalf)
-                default:
-                    break
+                default: break
                 }
                 pipRect.origin.y += pipRowSpacing
             }
@@ -122,7 +132,7 @@ class PlayingCardView: UIView {
         if faceUp {
             if let faceCardImage = UIImage(named: rankString, in: Bundle(for: self.classForCoder), compatibleWith: traitCollection) {
 //            if let faceCardImage = UIImage(named: rankString + suit, in: Bundle(for: self.classForCoder), compatibleWith: traitCollection) {
-                faceCardImage.draw(in: bounds.zoom(by: SizeRatio.faceCardImageSizeToBoundsSize))
+                faceCardImage.draw(in: bounds.zoom(by: imageScaleSize))
             } else {
                 drawPips()
             }
