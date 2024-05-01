@@ -18,6 +18,7 @@ Hit the Esc key to enter "Normal mode". Then you can type : to enter "Command-li
 5. :x to write and quit; like :wq but writes only if modified (short for :exit)
 6. :qa to quit all (short for :quitall)
 7. :cq to quit, without saving, with a nonzero exit code to indicate failure (short for :cquit)
+
 You can also quit Vim directly from "Normal mode" by typing ZZ to save and quit (same as :x) or ZQ to just quit (same as :q!). (Note that case is important here. ZZ and zz do not mean the same thing.)
 
 Vim has extensive help - that you can access with the :help command - where you can find answers to all your questions and a tutorial for beginners.
