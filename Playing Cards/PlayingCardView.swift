@@ -162,6 +162,16 @@ class PlayingCardView: UIView {
         setNeedsLayout()
     }
 
+    @objc func flipCard(_ sender: UITapGestureRecognizer) {
+        switch sender.state {
+        case .ended:
+            if let view = sender.view as? PlayingCardView {
+                view.faceUp = !view.faceUp
+            }
+        default:
+            break
+        }
+    }
 }
 
 extension CGPoint {
