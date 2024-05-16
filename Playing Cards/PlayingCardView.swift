@@ -166,7 +166,9 @@ class PlayingCardView: UIView {
         switch sender.state {
         case .ended:
             if let view = sender.view as? PlayingCardView {
-                view.faceUp = !view.faceUp
+                UIView.transition(with: self, duration: 0.6, options: [.transitionFlipFromLeft], animations: {
+                    view.faceUp = !view.faceUp
+                })
             }
         default:
             break
