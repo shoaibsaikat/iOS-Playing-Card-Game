@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, PlayingCardObserver {
     var deck = PlayingDeck()
     
     @IBOutlet var playingCards: [PlayingCardView]! {
@@ -21,6 +21,7 @@ class ViewController: UIViewController {
 //                playingCardView.addGestureRecognizer(pinch)
 
                 card.addGestureRecognizer(UITapGestureRecognizer(target: card, action: #selector(card.flipCard(_:))))
+                card.setController(self)
             }
         }
     }
@@ -37,6 +38,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
 
-
+    func cardFlipped() {
+        let faceUpCards = playingCards.filter {
+            $0.faceUp
+        }
+        if faceUpCards.count > 1 {
+            playingCards.forEach { cardView in
+                if cardView.faceUp {
+                    UIView.transition(with: cardView, duration: 0.6, options: [.transitionFlipFromLeft], animations: {
+                        cardView.faceUp = false
+                    })
+                }
+            }
+        }
+    }
 }
 

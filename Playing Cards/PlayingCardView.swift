@@ -43,11 +43,23 @@ class PlayingCardView: UIView {
     private var imageScaleSize = SizeRatio.faceCardImageSizeToBoundsSize { didSet { setNeedsDisplay() } }
     
     @IBInspectable
-    var rank: Int = 10 { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    var rank = 10 { didSet { setNeedsDisplay(); setNeedsLayout() } }
     @IBInspectable
-    var suit: String = "❤️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    var suit = "❤️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
     @IBInspectable
-    var faceUp: Bool = true { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    var faceUp = false { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    var matched = false {
+        didSet {
+            self.isHidden = matched
+            setNeedsDisplay()
+            setNeedsLayout()
+        }
+    }
+    var controller: PlayingCardObserver?
+    
+    func setController(_ controller: PlayingCardObserver) {
+        self.controller = controller
+    }
     
     private lazy var upperLeftCornerLabel = createCornerLabel()
     private lazy var lowerRightCornerLabel = createCornerLabel()
@@ -165,11 +177,11 @@ class PlayingCardView: UIView {
     @objc func flipCard(_ sender: UITapGestureRecognizer) {
         switch sender.state {
         case .ended:
-            if let view = sender.view as? PlayingCardView {
-                UIView.transition(with: self, duration: 0.6, options: [.transitionFlipFromLeft], animations: {
-                    view.faceUp = !view.faceUp
-                })
-            }
+            UIView.transition(with: self, duration: 0.6, options: [.transitionFlipFromLeft], animations: {
+                self.faceUp = !self.faceUp
+            }, completion: { completed in
+                self.controller?.cardFlipped()
+            })
         default:
             break
         }
@@ -196,4 +208,8 @@ extension CGRect {
         let newHeight = height * scale
         return insetBy(dx: (width - newWidth) / 2, dy: (height - newHeight) / 2)
     }
+}
+
+protocol PlayingCardObserver {
+    func cardFlipped()
 }

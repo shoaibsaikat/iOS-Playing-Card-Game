@@ -26,7 +26,7 @@
                                         <integer key="value" value="11"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tx9-DA-k9H" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
@@ -39,7 +39,7 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♣️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfA-BF-Je9" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
@@ -52,7 +52,7 @@
                                         <integer key="value" value="2"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♣️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iHG-yj-eCl" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
@@ -65,7 +65,7 @@
                                         <integer key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HhH-SC-jbT" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
@@ -78,7 +78,7 @@
                                         <integer key="value" value="9"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♣️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UEF-LN-Gr4" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
@@ -91,7 +91,7 @@
                                         <integer key="value" value="12"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♦️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OYj-Xc-AkW" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
@@ -104,7 +104,7 @@
                                         <integer key="value" value="13"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♣️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1aM-GF-fHx" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
@@ -117,7 +117,7 @@
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♠️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7eu-TL-APj" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
@@ -130,7 +130,7 @@
                                         <integer key="value" value="11"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♦️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pfN-L6-krX" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
@@ -143,7 +143,7 @@
                                         <integer key="value" value="13"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♠️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="97x-OL-uxf" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
@@ -156,7 +156,7 @@
                                         <integer key="value" value="12"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♦️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mZj-au-3Qy" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
@@ -169,7 +169,7 @@
                                         <integer key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♠️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
