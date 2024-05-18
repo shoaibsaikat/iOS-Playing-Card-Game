@@ -186,6 +186,15 @@ class PlayingCardView: UIView {
             break
         }
     }
+    
+    func playingCardView(rank: Int, suit: String) {
+        self.rank = rank
+        self.suit = suit
+        self.matched = false
+        self.faceUp = false
+        setNeedsDisplay()
+        setNeedsLayout()
+    }
 }
 
 extension CGPoint {

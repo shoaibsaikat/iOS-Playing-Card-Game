@@ -36,6 +36,17 @@ class ViewController: UIViewController, PlayingCardObserver {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var cards = deck.drawCardPair()
+        for cardView in playingCards {
+            if cards == nil || (cards?.isEmpty)! {
+                cards = deck.drawCardPair()
+            }
+            if let card = cards?.removeLast() {
+                cardView.playingCardView(rank: card.rank.order, suit: card.suit.rawValue)
+            } else {
+                cardView.playingCardView(rank: 0, suit: "?")
+            }
+        }
     }
 
     func cardFlipped() {
@@ -44,8 +55,8 @@ class ViewController: UIViewController, PlayingCardObserver {
         }
         if faceUpCards.count > 1 {
             playingCards.forEach { cardView in
-                if cardView.faceUp {
-                    UIView.transition(with: cardView, duration: 0.6, options: [.transitionFlipFromLeft], animations: {
+                if cardView.faceUp && !cardView.matched {
+                    UIView.transition(with: cardView, duration: 1.8, options: [.transitionCrossDissolve], animations: {
                         cardView.faceUp = false
                     })
                 }

@@ -18,9 +18,18 @@ struct PlayingDeck {
         }
     }
     
-    mutating func draw() -> PlayingCard? {
-        if cards.count > 0 {
-            return cards.remove(at: cards.count.arc4random)
+    mutating func drawCardPair() -> [PlayingCard]? {
+        if cards.count > 1 {
+            var index = 0
+            var resultCards = [PlayingCard]()
+            resultCards.append(cards.remove(at: cards.count.arc4random))
+            for card in cards {
+                if card.rank.order == resultCards[0].rank.order {
+                    resultCards.append(cards.remove(at: index))
+                    return resultCards
+                }
+                index = index + 1
+            }
         }
         return nil
     }
