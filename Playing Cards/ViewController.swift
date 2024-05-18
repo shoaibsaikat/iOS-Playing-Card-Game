@@ -50,12 +50,27 @@ class ViewController: UIViewController, PlayingCardObserver {
     }
 
     func cardFlipped() {
-        let faceUpCards = playingCards.filter {
-            $0.faceUp
-        }
+        let faceUpCards = playingCards.filter { $0.faceUp }
         if faceUpCards.count > 1 {
-            playingCards.forEach { cardView in
-                if cardView.faceUp && !cardView.matched {
+            if faceUpCards[0].rank == faceUpCards[1].rank {
+                playingCards.filter { $0.faceUp }.forEach { cardView in
+                    UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.75, delay: 0, options: [], animations: {
+                        cardView.transform = CGAffineTransform.identity.scaledBy(x: 1.7, y: 1.7)
+                    }, completion: { position in
+                        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.75, delay: 0, options: [], animations: {
+                            cardView.transform = CGAffineTransform.identity.scaledBy(x: 0.1, y: 0.1)
+                            cardView.alpha = 0
+                        }, completion: { position in
+                            cardView.matched = true
+                            cardView.faceUp = false
+                            // just clearing up the changes, optional code
+                            cardView.transform = CGAffineTransform.identity
+                            cardView.alpha = 1
+                        })
+                    })
+                }
+            } else {
+                playingCards.filter { $0.faceUp }.forEach { cardView in
                     UIView.transition(with: cardView, duration: 1.8, options: [.transitionCrossDissolve], animations: {
                         cardView.faceUp = false
                     })
