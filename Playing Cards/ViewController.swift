@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController, PlayingCardObserver {
     var deck = PlayingDeck()
+    lazy var animator = UIDynamicAnimator(referenceView: view)
+    lazy var cardBehavior = PlayingCardAnimator(animator: animator)
     
     @IBOutlet var playingCards: [PlayingCardView]! {
         didSet {
@@ -46,6 +48,9 @@ class ViewController: UIViewController, PlayingCardObserver {
             } else {
                 cardView.playingCardView(rank: 0, suit: "?")
             }
+            cardBehavior.addCollisionBehavior(view: cardView)
+            cardBehavior.addPushBehavior(view: cardView)
+            cardBehavior.addDynamicBehavior(view: cardView)
         }
     }
 
