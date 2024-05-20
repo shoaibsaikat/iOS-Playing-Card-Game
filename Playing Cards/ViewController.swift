@@ -58,14 +58,15 @@ class ViewController: UIViewController, PlayingCardObserver {
         let faceUpCards = playingCards.filter { $0.faceUp }
         if faceUpCards.count > 1 {
             if faceUpCards[0].rank == faceUpCards[1].rank {
+//                cards match
                 playingCards.filter { $0.faceUp }.forEach { cardView in
                     UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.75, delay: 0, options: [], animations: {
                         cardView.transform = CGAffineTransform.identity.scaledBy(x: 1.7, y: 1.7)
-                    }, completion: { position in
+                    }, completion: { _ in
                         UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.75, delay: 0, options: [], animations: {
                             cardView.transform = CGAffineTransform.identity.scaledBy(x: 0.1, y: 0.1)
                             cardView.alpha = 0
-                        }, completion: { position in
+                        }, completion: { _ in
                             cardView.matched = true
                             cardView.faceUp = false
                             // just clearing up the changes, optional code
@@ -75,9 +76,13 @@ class ViewController: UIViewController, PlayingCardObserver {
                     })
                 }
             } else {
+//                cards do not match
                 playingCards.filter { $0.faceUp }.forEach { cardView in
                     UIView.transition(with: cardView, duration: 1.8, options: [.transitionCrossDissolve], animations: {
                         cardView.faceUp = false
+                    }, completion: { _ in
+//                        TODO: not working, need to check why
+                        self.cardBehavior.addPushBehavior(view: cardView)
                     })
                 }
             }

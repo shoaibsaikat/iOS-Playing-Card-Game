@@ -8,8 +8,6 @@
 import UIKit
 
 class PlayingCardAnimator: UIDynamicBehavior {
-    
-    lazy var animator: UIDynamicAnimator? = nil
     var collision: UICollisionBehavior = {
         let collision = UICollisionBehavior()
         collision.translatesReferenceBoundsIntoBoundary = true
@@ -22,6 +20,7 @@ class PlayingCardAnimator: UIDynamicBehavior {
         let property = UIDynamicItemBehavior()
         property.elasticity = 1.0
         property.allowsRotation = false
+        property.resistance = 0
         return property
     }()
     
@@ -31,6 +30,7 @@ class PlayingCardAnimator: UIDynamicBehavior {
         push.angle = CGFloat.random(in: 0 ... 2 * CGFloat.pi)
         self.addChildBehavior(push)
         push.action = {
+            self.push.removeItem(view)
             self.removeChildBehavior(self.push)
         }
     }
@@ -51,7 +51,6 @@ class PlayingCardAnimator: UIDynamicBehavior {
     
     convenience init(animator: UIDynamicAnimator) {
         self.init()
-        self.animator = animator
-        self.animator?.addBehavior(self)
+        animator.addBehavior(self)
     }
 }
