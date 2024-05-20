@@ -48,9 +48,8 @@ class ViewController: UIViewController, PlayingCardObserver {
             } else {
                 cardView.playingCardView(rank: 0, suit: "?")
             }
-            cardBehavior.addCollisionBehavior(view: cardView)
-            cardBehavior.addPushBehavior(view: cardView)
-            cardBehavior.addDynamicBehavior(view: cardView)
+            cardBehavior.addOtherBehavior(cardView)
+            cardBehavior.addPushBehavior(cardView)
         }
     }
 
@@ -82,7 +81,7 @@ class ViewController: UIViewController, PlayingCardObserver {
                         cardView.faceUp = false
                     }, completion: { _ in
 //                        TODO: not working, need to check why
-                        self.cardBehavior.addPushBehavior(view: cardView)
+                        self.cardBehavior.addPushBehavior(cardView)
                     })
                 }
             }
