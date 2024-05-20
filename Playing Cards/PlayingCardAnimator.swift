@@ -26,14 +26,14 @@ class PlayingCardAnimator: UIDynamicBehavior {
     
     func addPushBehavior(_ view: PlayingCardView) {
         push.addItem(view)
-        push.magnitude = 1.0 + CGFloat.random(in: 1 ... 2)
+        push.magnitude = 1.0 + CGFloat(2.0).arc4random
         if let referenceBounds = dynamicAnimator?.referenceView?.bounds {
             let center = CGPoint(x: referenceBounds.midX, y: referenceBounds.midY)
             switch (view.center.x, view.center.y) {
-            case let (x, y) where x < center.x && y < center.y: push.angle = CGFloat.random(in: 0 ... CGFloat.pi / 2)
-            case let (x, y) where x > center.x && y < center.y: push.angle = CGFloat.pi - CGFloat.random(in: 0 ... CGFloat.pi / 2)
-            case let (x, y) where x < center.x && y > center.y: push.angle = CGFloat.random(in: -CGFloat.pi / 2 ... 0)
-            case let (x, y) where x > center.x && y > center.y: push.angle = CGFloat.pi + CGFloat.random(in: 0 ... CGFloat.pi / 2)
+            case let (x, y) where x < center.x && y < center.y: push.angle = (CGFloat.pi / 2).arc4random
+            case let (x, y) where x > center.x && y < center.y: push.angle = CGFloat.pi - (CGFloat.pi / 2).arc4random
+            case let (x, y) where x < center.x && y > center.y: push.angle = -(CGFloat.pi / 2).arc4random
+            case let (x, y) where x > center.x && y > center.y: push.angle = CGFloat.pi + (CGFloat.pi / 2).arc4random
             default: push.angle = 2 * CGFloat.pi
             }
         }
@@ -85,5 +85,15 @@ class PlayingCardAnimator: UIDynamicBehavior {
     convenience init(animator: UIDynamicAnimator) {
         self.init()
         animator.addBehavior(self)
+    }
+}
+
+extension CGFloat {
+    var arc4random: CGFloat {
+        if (self >= 0) {
+            return CGFloat(arc4random_uniform(UInt32(self)))
+        } else {
+            return -CGFloat(arc4random_uniform(UInt32(abs(self))))
+        }
     }
 }
