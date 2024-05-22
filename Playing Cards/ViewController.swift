@@ -59,7 +59,8 @@ class ViewController: UIViewController, PlayingCardObserver {
         if faceUpCards.count > 1 {
             if faceUpCards[0].rank == faceUpCards[1].rank {
                 // cards match
-                playingCards.filter { $0.faceUp }.forEach { cardView in
+                // TODO: for match case cards are scalled too big, need to fix
+                self.playingCards.filter { $0.faceUp }.forEach { cardView in
                     UIViewPropertyAnimator.runningPropertyAnimator(withDuration: PlayingCardView.AnimationConst.animationTime, delay: 0, options: [], animations: {
                         cardView.transform      = CGAffineTransform.identity.scaledBy(x: PlayingCardView.AnimationConst.bigScale, y: PlayingCardView.AnimationConst.bigScale)
                     }, completion: { _ in

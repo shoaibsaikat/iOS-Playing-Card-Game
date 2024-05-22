@@ -23,10 +23,10 @@ class PlayingCardBehavior: UIDynamicBehavior {
     
     func addPushBehavior(_ view: PlayingCardView) {
         let push = UIPushBehavior(items: [], mode: .instantaneous)
-        push.addItem(view)
         push.magnitude = 1.0 + CGFloat(3.0).arc4random
         push.angle = (2 * CGFloat.pi).arc4random
-        self.addChildBehavior(push)
+        push.addItem(view)
+        addChildBehavior(push)
         push.action = {
             self.removePushBehavior(push, from: view)
         }

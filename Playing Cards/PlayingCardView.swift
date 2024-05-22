@@ -20,7 +20,7 @@ class PlayingCardView: UIView {
     struct AnimationConst {
         static let transitionTime: Double  = 0.60
         static let animationTime: Double   = 0.75
-        static let bigScale: CGFloat       = 1.7
+        static let bigScale: CGFloat       = 1.5
         static let smallScale: CGFloat     = 0.1
     }
     
