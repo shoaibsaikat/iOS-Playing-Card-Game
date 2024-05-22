@@ -1,5 +1,6 @@
 # iOS-Playing-Card-Game-Public
-Own implementation of Stanford CS193P Course, Playing Card Game
+Own implementation of Stanford CS193P Course, Playing Card Game.
+Player has to match two identical cards, from 12 cards deck, in few moves as possible.
 
 # How to add existing local git repo to GitHub
 1. Create the remote repository and copy the URL
