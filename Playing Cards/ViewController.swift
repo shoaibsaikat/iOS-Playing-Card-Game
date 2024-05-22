@@ -81,7 +81,6 @@ class ViewController: UIViewController, PlayingCardObserver {
                     UIView.transition(with: cardView, duration: PlayingCardView.AnimationConst.transitionTime, options: [.transitionCrossDissolve], animations: {
                         cardView.faceUp = false
                     }, completion: { _ in
-                        // TODO: not working, need to check why
                         self.cardBehavior.addPushBehavior(cardView)
                     })
                 }

@@ -13,9 +13,6 @@ class PlayingCardBehavior: UIDynamicBehavior {
         collision.translatesReferenceBoundsIntoBoundary = true
         return collision
     }()
-    var push: UIPushBehavior = {
-        return UIPushBehavior(items: [], mode: .instantaneous)
-    }()
     var property: UIDynamicItemBehavior = {
         let property = UIDynamicItemBehavior()
         property.elasticity = 1.0
@@ -25,27 +22,19 @@ class PlayingCardBehavior: UIDynamicBehavior {
     }()
     
     func addPushBehavior(_ view: PlayingCardView) {
+        let push = UIPushBehavior(items: [], mode: .instantaneous)
         push.addItem(view)
-        push.magnitude = 1.0 + CGFloat(2.0).arc4random
-        if let referenceBounds = dynamicAnimator?.referenceView?.bounds {
-            let center = CGPoint(x: referenceBounds.midX, y: referenceBounds.midY)
-            switch (view.center.x, view.center.y) {
-            case let (x, y) where x < center.x && y < center.y: push.angle = (CGFloat.pi / 2).arc4random
-            case let (x, y) where x > center.x && y < center.y: push.angle = CGFloat.pi - (CGFloat.pi / 2).arc4random
-            case let (x, y) where x < center.x && y > center.y: push.angle = -(CGFloat.pi / 2).arc4random
-            case let (x, y) where x > center.x && y > center.y: push.angle = CGFloat.pi + (CGFloat.pi / 2).arc4random
-            default: push.angle = 2 * CGFloat.pi
-            }
-        }
+        push.magnitude = 1.0 + CGFloat(3.0).arc4random
+        push.angle = (2 * CGFloat.pi).arc4random
         self.addChildBehavior(push)
         push.action = {
-            self.removePushBehavior(view)
+            self.removePushBehavior(push, from: view)
         }
     }
     
-    func removePushBehavior(_ view: PlayingCardView) {
-        self.push.removeItem(view)
-        self.removeChildBehavior(self.push)
+    func removePushBehavior(_ push:UIPushBehavior, from view: PlayingCardView) {
+        push.removeItem(view)
+        removeChildBehavior(push)
     }
     
     func addOtherBehavior(_ view: PlayingCardView) {
