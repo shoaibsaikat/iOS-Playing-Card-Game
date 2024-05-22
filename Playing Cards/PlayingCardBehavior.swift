@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PlayingCardAnimator: UIDynamicBehavior {
+class PlayingCardBehavior: UIDynamicBehavior {
     var collision: UICollisionBehavior = {
         let collision = UICollisionBehavior()
         collision.translatesReferenceBoundsIntoBoundary = true

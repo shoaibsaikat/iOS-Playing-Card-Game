@@ -17,6 +17,13 @@ class PlayingCardView: UIView {
         static let backCardImageSizeToBoundsSize: CGFloat       = 0.90
     }
     
+    struct AnimationConst {
+        static let transitionTime: Double  = 0.60
+        static let animationTime: Double   = 0.75
+        static let bigScale: CGFloat       = 1.7
+        static let smallScale: CGFloat     = 0.1
+    }
+    
     private var cornerRadius: CGFloat {
         return bounds.size.height * SizeRatio.cornerRadiusToBoundsHeight
     }
@@ -40,6 +47,8 @@ class PlayingCardView: UIView {
         }
     }
     
+    var controller: PlayingCardObserver?
+    
     private var imageScaleSize = SizeRatio.faceCardImageSizeToBoundsSize { didSet { setNeedsDisplay() } }
     
     @IBInspectable
@@ -55,8 +64,7 @@ class PlayingCardView: UIView {
             setNeedsLayout()
         }
     }
-    var controller: PlayingCardObserver?
-    
+
     func setController(_ controller: PlayingCardObserver) {
         self.controller = controller
     }
@@ -175,23 +183,28 @@ class PlayingCardView: UIView {
     }
 
     @objc func flipCard(_ sender: UITapGestureRecognizer) {
-        switch sender.state {
-        case .ended:
-            UIView.transition(with: self, duration: 0.6, options: [.transitionFlipFromLeft], animations: {
-                self.faceUp = !self.faceUp
-            }, completion: { completed in
-                self.controller?.cardFlipped()
-            })
-        default:
-            break
+        // tap won't working until animation is finished
+        if let animationRunning = controller?.getAnimationStatus(), !animationRunning {
+            switch sender.state {
+            case .ended:
+                UIView.transition(with: self, duration: PlayingCardView.AnimationConst.transitionTime, options: [.transitionFlipFromLeft], animations: {
+                    self.controller?.animationStarted()
+                    self.faceUp = !self.faceUp
+                }, completion: { completed in
+                    self.controller?.cardFlipped()
+                    self.controller?.animationFinished()
+                })
+            default:
+                break
+            }
         }
     }
     
     func playingCardView(rank: Int, suit: String) {
-        self.rank = rank
-        self.suit = suit
-        self.matched = false
-        self.faceUp = false
+        self.rank       = rank
+        self.suit       = suit
+        self.matched    = false
+        self.faceUp     = false
         setNeedsDisplay()
         setNeedsLayout()
     }
@@ -221,4 +234,7 @@ extension CGRect {
 
 protocol PlayingCardObserver {
     func cardFlipped()
+    func animationStarted()
+    func animationFinished()
+    func getAnimationStatus() -> Bool
 }

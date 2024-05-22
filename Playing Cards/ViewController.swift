@@ -8,9 +8,10 @@
 import UIKit
 
 class ViewController: UIViewController, PlayingCardObserver {
-    var deck = PlayingDeck()
-    lazy var animator = UIDynamicAnimator(referenceView: view)
-    lazy var cardBehavior = PlayingCardAnimator(animator: animator)
+    var deck                    = PlayingDeck()
+    lazy var animator           = UIDynamicAnimator(referenceView: view)
+    lazy var cardBehavior       = PlayingCardBehavior(animator: animator)
+    var animationRunning        = false
     
     @IBOutlet var playingCards: [PlayingCardView]! {
         didSet {
@@ -57,35 +58,47 @@ class ViewController: UIViewController, PlayingCardObserver {
         let faceUpCards = playingCards.filter { $0.faceUp }
         if faceUpCards.count > 1 {
             if faceUpCards[0].rank == faceUpCards[1].rank {
-//                cards match
+                // cards match
                 playingCards.filter { $0.faceUp }.forEach { cardView in
-                    UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.75, delay: 0, options: [], animations: {
-                        cardView.transform = CGAffineTransform.identity.scaledBy(x: 1.7, y: 1.7)
+                    UIViewPropertyAnimator.runningPropertyAnimator(withDuration: PlayingCardView.AnimationConst.animationTime, delay: 0, options: [], animations: {
+                        cardView.transform      = CGAffineTransform.identity.scaledBy(x: PlayingCardView.AnimationConst.bigScale, y: PlayingCardView.AnimationConst.bigScale)
                     }, completion: { _ in
-                        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.75, delay: 0, options: [], animations: {
-                            cardView.transform = CGAffineTransform.identity.scaledBy(x: 0.1, y: 0.1)
-                            cardView.alpha = 0
+                        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: PlayingCardView.AnimationConst.animationTime, delay: 0, options: [], animations: {
+                            cardView.transform  = CGAffineTransform.identity.scaledBy(x: PlayingCardView.AnimationConst.smallScale, y: PlayingCardView.AnimationConst.smallScale)
+                            cardView.alpha      = 0
                         }, completion: { _ in
-                            cardView.matched = true
-                            cardView.faceUp = false
+                            cardView.matched    = true
+                            cardView.faceUp     = false
                             // just clearing up the changes, optional code
-                            cardView.transform = CGAffineTransform.identity
-                            cardView.alpha = 1
+                            cardView.transform  = CGAffineTransform.identity
+                            cardView.alpha      = 1
                         })
                     })
                 }
             } else {
-//                cards do not match
+                // cards do not match
                 playingCards.filter { $0.faceUp }.forEach { cardView in
-                    UIView.transition(with: cardView, duration: 1.8, options: [.transitionCrossDissolve], animations: {
+                    UIView.transition(with: cardView, duration: PlayingCardView.AnimationConst.transitionTime, options: [.transitionCrossDissolve], animations: {
                         cardView.faceUp = false
                     }, completion: { _ in
-//                        TODO: not working, need to check why
+                        // TODO: not working, need to check why
                         self.cardBehavior.addPushBehavior(cardView)
                     })
                 }
             }
         }
+    }
+    
+    func animationStarted() {
+        animationRunning = true
+    }
+    
+    func animationFinished() {
+        animationRunning = false
+    }
+    
+    func getAnimationStatus() -> Bool {
+        return animationRunning
     }
 }
 
