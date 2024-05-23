@@ -36,7 +36,6 @@ class ViewController: UIViewController, PlayingCardObserver {
 //        }
 //    }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         var cards = deck.drawCardPair()
