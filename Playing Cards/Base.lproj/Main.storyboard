@@ -16,179 +16,199 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tx9-DA-k9H" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
-                                <rect key="frame" x="137" y="20" width="88" height="142"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♣️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfA-BF-Je9" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
-                                <rect key="frame" x="16" y="178" width="88" height="142"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♣️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iHG-yj-eCl" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
-                                <rect key="frame" x="137" y="178" width="88" height="142"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HhH-SC-jbT" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
-                                <rect key="frame" x="16" y="338" width="88" height="142"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
-                                        <integer key="value" value="9"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♣️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UEF-LN-Gr4" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
-                                <rect key="frame" x="143" y="338" width="88" height="142"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
-                                        <integer key="value" value="12"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♦️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OYj-Xc-AkW" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
-                                <rect key="frame" x="143" y="505" width="88" height="142"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♣️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7eu-TL-APj" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
-                                <rect key="frame" x="264" y="178" width="88" height="142"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
-                                        <integer key="value" value="11"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♦️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pfN-L6-krX" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
-                                <rect key="frame" x="264" y="338" width="88" height="142"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
-                                        <integer key="value" value="13"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♠️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="97x-OL-uxf" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
-                                <rect key="frame" x="264" y="505" width="88" height="142"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
-                                        <integer key="value" value="12"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♦️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mZj-au-3Qy" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
-                                <rect key="frame" x="16" y="505" width="88" height="142"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
-                                        <integer key="value" value="6"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♠️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1aM-GF-fHx" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
-                                <rect key="frame" x="264" y="20" width="88" height="142"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
-                                        <integer key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♠️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view opaque="NO" contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KZ5-Tm-otx" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
-                                <rect key="frame" x="16" y="20" width="88" height="142"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <gestureRecognizers/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
-                                        <integer key="value" value="11"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="UGb-HB-sCW">
+                                <rect key="frame" x="16" y="20" width="343" height="625"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="knH-zN-Uls">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="142"/>
+                                        <subviews>
+                                            <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="KZ5-Tm-otx" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="90.5" height="142"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
+                                                        <integer key="value" value="11"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="tx9-DA-k9H" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
+                                                <rect key="frame" x="126.5" y="0.0" width="90" height="142"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
+                                                        <integer key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♣️"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="1aM-GF-fHx" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
+                                                <rect key="frame" x="252.5" y="0.0" width="90.5" height="142"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♠️"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="7fw-2l-Umh">
+                                        <rect key="frame" x="0.0" y="161" width="343" height="142"/>
+                                        <subviews>
+                                            <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cfA-BF-Je9" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="90.5" height="142"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
+                                                        <integer key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♣️"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="iHG-yj-eCl" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
+                                                <rect key="frame" x="126.5" y="0.0" width="90" height="142"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="❤️"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="7eu-TL-APj" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
+                                                <rect key="frame" x="252.5" y="0.0" width="90.5" height="142"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
+                                                        <integer key="value" value="11"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♦️"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="KLg-9S-GP9">
+                                        <rect key="frame" x="0.0" y="322" width="343" height="142"/>
+                                        <subviews>
+                                            <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="HhH-SC-jbT" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="90.5" height="142"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
+                                                        <integer key="value" value="9"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♣️"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="UEF-LN-Gr4" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
+                                                <rect key="frame" x="126.5" y="0.0" width="90" height="142"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
+                                                        <integer key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♦️"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="pfN-L6-krX" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
+                                                <rect key="frame" x="252.5" y="0.0" width="90.5" height="142"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
+                                                        <integer key="value" value="13"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♠️"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="IL4-QU-U4N">
+                                        <rect key="frame" x="0.0" y="483" width="343" height="142"/>
+                                        <subviews>
+                                            <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="mZj-au-3Qy" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="90.5" height="142"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
+                                                        <integer key="value" value="6"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♠️"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="OYj-Xc-AkW" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
+                                                <rect key="frame" x="126.5" y="0.0" width="90" height="142"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
+                                                        <integer key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♣️"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="97x-OL-uxf" customClass="PlayingCardView" customModule="Playing_Cards" customModuleProvider="target">
+                                                <rect key="frame" x="252.5" y="0.0" width="90.5" height="142"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <gestureRecognizers/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="rank">
+                                                        <integer key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="suit" value="♦️"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="faceUp" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="UGb-HB-sCW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7dK-MH-eHD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UGb-HB-sCW" secondAttribute="bottom" constant="22" id="ROo-AO-DZd"/>
+                            <constraint firstItem="UGb-HB-sCW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Ut7-mZ-zjk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UGb-HB-sCW" secondAttribute="trailing" constant="16" id="ifg-05-s7x"/>
+                            <constraint firstItem="UGb-HB-sCW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="muw-zc-FA7"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outletCollection property="playingCards" destination="cfA-BF-Je9" collectionClass="NSMutableArray" id="Ndh-zN-6gp"/>
-                        <outletCollection property="playingCards" destination="KZ5-Tm-otx" collectionClass="NSMutableArray" id="s3s-TG-WNt"/>
-                        <outletCollection property="playingCards" destination="tx9-DA-k9H" collectionClass="NSMutableArray" id="Alm-Pb-eG3"/>
                         <outletCollection property="playingCards" destination="1aM-GF-fHx" collectionClass="NSMutableArray" id="Kqs-On-Wm0"/>
+                        <outletCollection property="playingCards" destination="tx9-DA-k9H" collectionClass="NSMutableArray" id="Alm-Pb-eG3"/>
+                        <outletCollection property="playingCards" destination="KZ5-Tm-otx" collectionClass="NSMutableArray" id="s3s-TG-WNt"/>
+                        <outletCollection property="playingCards" destination="cfA-BF-Je9" collectionClass="NSMutableArray" id="Ndh-zN-6gp"/>
                         <outletCollection property="playingCards" destination="iHG-yj-eCl" collectionClass="NSMutableArray" id="1nz-Tq-ADO"/>
                         <outletCollection property="playingCards" destination="7eu-TL-APj" collectionClass="NSMutableArray" id="3Je-Jy-pYJ"/>
-                        <outletCollection property="playingCards" destination="HhH-SC-jbT" collectionClass="NSMutableArray" id="yUn-rf-p4X"/>
-                        <outletCollection property="playingCards" destination="UEF-LN-Gr4" collectionClass="NSMutableArray" id="uJe-ep-dRm"/>
                         <outletCollection property="playingCards" destination="pfN-L6-krX" collectionClass="NSMutableArray" id="s4N-jo-F3O"/>
-                        <outletCollection property="playingCards" destination="mZj-au-3Qy" collectionClass="NSMutableArray" id="AzF-re-Hcj"/>
+                        <outletCollection property="playingCards" destination="UEF-LN-Gr4" collectionClass="NSMutableArray" id="uJe-ep-dRm"/>
+                        <outletCollection property="playingCards" destination="HhH-SC-jbT" collectionClass="NSMutableArray" id="yUn-rf-p4X"/>
                         <outletCollection property="playingCards" destination="OYj-Xc-AkW" collectionClass="NSMutableArray" id="jcp-rb-4gR"/>
+                        <outletCollection property="playingCards" destination="mZj-au-3Qy" collectionClass="NSMutableArray" id="AzF-re-Hcj"/>
                         <outletCollection property="playingCards" destination="97x-OL-uxf" collectionClass="NSMutableArray" id="aPH-o7-68M"/>
                     </connections>
                 </viewController>
