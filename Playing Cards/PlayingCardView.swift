@@ -20,7 +20,7 @@ class PlayingCardView: UIView {
     struct AnimationConst {
         static let transitionTime: Double  = 0.60
         static let animationTime: Double   = 0.75
-        static let bigScale: CGFloat       = 1.5
+        static let bigScale: CGFloat       = 1.2
         static let smallScale: CGFloat     = 0.1
     }
     
@@ -51,17 +51,39 @@ class PlayingCardView: UIView {
     
     private var imageScaleSize = SizeRatio.faceCardImageSizeToBoundsSize { didSet { setNeedsDisplay() } }
     
-    @IBInspectable
-    var rank = 10 { didSet { setNeedsDisplay(); setNeedsLayout() } }
-    @IBInspectable
-    var suit = "❤️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
-    @IBInspectable
-    var faceUp = false { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    @IBInspectable var rank = 10 { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    @IBInspectable var suit = "❤️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
+    @IBInspectable var faceUp = false {
+        didSet {
+            UIView.transition(with: self, duration: PlayingCardView.AnimationConst.transitionTime, options: [.transitionFlipFromLeft], animations: {
+                self.controller?.animationStarted()
+                self.setNeedsDisplay()
+                self.setNeedsLayout()
+            }, completion: { _ in
+                self.controller?.animationFinished()
+                if self.faceUp {
+                    self.controller?.cardFlipped()
+                }
+            })
+        }
+    }
     var matched = false {
         didSet {
-            self.isHidden = matched
-            setNeedsDisplay()
-            setNeedsLayout()
+            if matched {
+                UIViewPropertyAnimator.runningPropertyAnimator(withDuration: PlayingCardView.AnimationConst.animationTime, delay: 0, options: [], animations: {
+                    self.controller?.animationStarted()
+                    self.alpha      = 0
+                    self.setNeedsDisplay()
+                    self.setNeedsLayout()
+                }, completion: { _ in
+                    self.isHidden   = self.matched
+                    // clearing up the changes, optional code
+                    self.alpha      = 1
+                    self.controller?.animationFinished()
+                })
+            } else {
+                self.isHidden       = self.matched
+            }
         }
     }
 
@@ -183,19 +205,11 @@ class PlayingCardView: UIView {
     }
 
     @objc func flipCard(_ sender: UITapGestureRecognizer) {
-        // tap won't working until animation is finished
-        if let animationRunning = controller?.getAnimationStatus(), !animationRunning {
+        // tap won't working until flip animation one card is finished
+        if !(controller?.isAnimationRunning())! {
             switch sender.state {
-            case .ended:
-                UIView.transition(with: self, duration: PlayingCardView.AnimationConst.transitionTime, options: [.transitionFlipFromLeft], animations: {
-                    self.controller?.animationStarted()
-                    self.faceUp = !self.faceUp
-                }, completion: { completed in
-                    self.controller?.cardFlipped()
-                    self.controller?.animationFinished()
-                })
-            default:
-                break
+            case .ended: self.faceUp = !self.faceUp
+            default: break
             }
         }
     }
@@ -236,5 +250,5 @@ protocol PlayingCardObserver {
     func cardFlipped()
     func animationStarted()
     func animationFinished()
-    func getAnimationStatus() -> Bool
+    func isAnimationRunning() -> Bool
 }
