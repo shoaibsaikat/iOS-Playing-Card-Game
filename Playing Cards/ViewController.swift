@@ -66,6 +66,8 @@ class ViewController: UIViewController, PlayingCardObserver {
                 // cards did not
                 faceUpCards.filter { $0.faceUp }.forEach { cardView in
                     cardView.faceUp     = false
+                    // below does not work if done from view, need to check why?
+                    cardBehavior.addPushBehavior(cardView)
                 }
             }
         }
