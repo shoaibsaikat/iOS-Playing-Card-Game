@@ -19,8 +19,8 @@ class PlayingCardView: UIView {
     
     struct AnimationConst {
         static let transitionTime: Double  = 0.60
-        static let scaleUp: CGFloat       = 3.0
-        static let scaleDown: CGFloat     = 0.1
+        static let scaleUp: CGFloat        = 1.5
+        static let scaleDown: CGFloat      = 0.1
     }
     
     private var cornerRadius: CGFloat {
@@ -213,8 +213,6 @@ class PlayingCardView: UIView {
     @objc func flipCard(_ sender: UITapGestureRecognizer) {
         // tap won't work until flip animation of one card is finished
         if !self.faceUp && !(controller?.isAnimationRunning())! {
-            // remove behavior if card is selected, this also fixes scale animation issue
-            controller?.removeBehavior(view: self)
             switch sender.state {
             case .ended: self.faceUp = !self.faceUp
             default: break

@@ -58,6 +58,8 @@ class ViewController: UIViewController, PlayingCardObserver {
             if faceUpCards[0].rank == faceUpCards[1].rank {
                 // cards matched
                 faceUpCards.filter { $0.faceUp }.forEach { cardView in
+                    // remove behavior if cards matched, this also fixes scale animation issue
+                    removeBehavior(view: cardView)
                     cardView.matched = true
                     cardView.faceUp = false
                 }
@@ -65,8 +67,6 @@ class ViewController: UIViewController, PlayingCardObserver {
                 // cards did not
                 faceUpCards.filter { $0.faceUp }.forEach { cardView in
                     cardView.faceUp = false
-                    // add behavior back, if cards do not match
-                    cardBehavior.addItem(view: cardView)
                 }
             }
         }
