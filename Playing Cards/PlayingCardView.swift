@@ -57,38 +57,21 @@ class PlayingCardView: UIView {
             if !matched {
                 UIView.transition(with: self, duration: PlayingCardView.AnimationConst.transitionTime, options: [.transitionFlipFromLeft], animations: {
                     self.controller?.animationStarted()
-                    self.setNeedsDisplay()
-                    self.setNeedsLayout()
                 }, completion: { _ in
                     self.controller?.animationFinished()
                     if self.faceUp {
                         self.controller?.cardFlipped()
                     }
                 })
+                setNeedsDisplay()
+                setNeedsLayout()
             }
         }
     }
     var matched = false {
-//        DispatchQueue.main.asyncAfter(deadline: .now() + PlayingCardView.AnimationConst.transitionTime) {
         didSet {
             if matched {
-//                TODO: scale animation not working properly in both approach
-                
-//                UIView.animate(withDuration: PlayingCardView.AnimationConst.transitionTime, animations: {
-//                    self.controller?.animationStarted()
-//                    self.transform = CGAffineTransform(scaleX: PlayingCardView.AnimationConst.scaleUp, y: PlayingCardView.AnimationConst.scaleUp)
-//                }, completion: { _ in
-//                    UIView.animate(withDuration: PlayingCardView.AnimationConst.transitionTime, animations: {
-//                        self.transform = CGAffineTransform(scaleX: PlayingCardView.AnimationConst.scaleDown, y: PlayingCardView.AnimationConst.scaleDown)
-//                        self.alpha = 0
-//                    }, completion: { _ in
-//                        self.isHidden = self.matched
-//                        // clearing up the changes, optional code
-//                        self.transform = CGAffineTransform.identity
-//                        self.alpha = 1
-//                        self.controller?.animationFinished()
-//                    })
-//                })
+                // scale animation issue fixed by removing behavior when cards are selected in view controller
                 UIViewPropertyAnimator.runningPropertyAnimator(withDuration: PlayingCardView.AnimationConst.transitionTime, delay: 0, options: [], animations: {
                     self.controller?.animationStarted()
                     self.transform = CGAffineTransform.identity.scaledBy(x: PlayingCardView.AnimationConst.scaleUp, y: PlayingCardView.AnimationConst.scaleUp)
@@ -104,6 +87,8 @@ class PlayingCardView: UIView {
                         self.controller?.animationFinished()
                     })
                 })
+                setNeedsDisplay()
+                setNeedsLayout()
             }
         }
     }
@@ -226,8 +211,10 @@ class PlayingCardView: UIView {
     }
 
     @objc func flipCard(_ sender: UITapGestureRecognizer) {
-        // tap won't working until flip animation one card is finished
-        if !(controller?.isAnimationRunning())! {
+        // tap won't work until flip animation of one card is finished
+        if !self.faceUp && !(controller?.isAnimationRunning())! {
+            // remove behavior if card is selected, this also fixes scale animation issue
+            controller?.removeBehavior(view: self)
             switch sender.state {
             case .ended: self.faceUp = !self.faceUp
             default: break
@@ -272,4 +259,5 @@ protocol PlayingCardObserver {
     func animationStarted()
     func animationFinished()
     func isAnimationRunning() -> Bool
+    func removeBehavior(view: UIView)
 }

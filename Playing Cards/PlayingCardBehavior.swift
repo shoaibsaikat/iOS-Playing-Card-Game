@@ -13,6 +13,7 @@ class PlayingCardBehavior: UIDynamicBehavior {
         collision.translatesReferenceBoundsIntoBoundary = true
         return collision
     }()
+
     var property: UIDynamicItemBehavior = {
         let property = UIDynamicItemBehavior()
         property.elasticity = 1.0
@@ -21,57 +22,45 @@ class PlayingCardBehavior: UIDynamicBehavior {
         return property
     }()
     
-    func addPushBehavior(_ view: PlayingCardView) {
+    func push(_ view: UIView) {
         let push = UIPushBehavior(items: [], mode: .instantaneous)
-        push.magnitude = 1.0 + CGFloat(3.0).arc4random
+//        if let referenceBounds = dynamicAnimator?.referenceView?.bounds {
+//            let center = CGPoint(x: referenceBounds.midX, y: referenceBounds.midY)
+//            switch (view.center.x, view.center.y) {
+//            case let (x, y) where x < center.x && y < center.y: push.angle = (CGFloat.pi / 2).arc4random
+//            case let (x, y) where x > center.x && y < center.y: push.angle = CGFloat.pi - (CGFloat.pi / 2).arc4random
+//            case let (x, y) where x < center.x && y > center.y: push.angle = -(CGFloat.pi / 2).arc4random
+//            case let (x, y) where x > center.x && y > center.y: push.angle = CGFloat.pi + (CGFloat.pi / 2).arc4random
+//            default: push.angle = 2 * CGFloat.pi
+//            }
+//        }
         push.angle = (2 * CGFloat.pi).arc4random
+        push.magnitude = 1.0 + CGFloat(2.0).arc4random
         push.addItem(view)
-        addChildBehavior(push)
-        push.action = {
-            self.removePushBehavior(push, from: view)
+        push.action = { [unowned push, weak self] in
+            self?.removeChildBehavior(push)
         }
+        addChildBehavior(push)
     }
     
-    func removePushBehavior(_ push:UIPushBehavior, from view: PlayingCardView) {
-        push.removeItem(view)
-        removeChildBehavior(push)
-    }
-    
-    func addOtherBehavior(_ view: PlayingCardView) {
-        addCollisionBehavior(view)
-        addDynamicBehavior(view)
-    }
-    
-    func removeOtherBehavior(_ view: PlayingCardView) {
-        removeCollisionBehavior(view)
-        removeDynamicBehavior(view)
-    }
-    
-    private func addCollisionBehavior(_ view: PlayingCardView) {
+    func addItem(view: UIView) {
         collision.addItem(view)
-        self.addChildBehavior(collision)
-    }
-    
-    private func removeCollisionBehavior(_ view: PlayingCardView) {
-        collision.removeItem(view)
-        self.removeChildBehavior(collision)
-    }
-    
-    private func addDynamicBehavior(_ view: PlayingCardView) {
         property.addItem(view)
-        self.addChildBehavior(property)
+        push(view)
     }
     
-    private func removeDynamicBehavior(_ view: PlayingCardView) {
+    func removeItem(view: UIView) {
+        collision.removeItem(view)
         property.removeItem(view)
-        self.removeChildBehavior(property)
     }
     
     override init() {
         super.init()
+        addChildBehavior(collision)
+        addChildBehavior(property)
     }
     
-    convenience init(animator: UIDynamicAnimator) {
+    convenience init(in animator: UIDynamicAnimator) {
         self.init()
         animator.addBehavior(self)
     }

@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController, PlayingCardObserver {
     var deck                    = PlayingDeck()
     lazy var animator           = UIDynamicAnimator(referenceView: view)
-    lazy var cardBehavior       = PlayingCardBehavior(animator: animator)
+    lazy var cardBehavior       = PlayingCardBehavior(in: animator)
     var runningAnimtationCount  = 0
     
     @IBOutlet var playingCards: [PlayingCardView]! {
@@ -48,8 +48,7 @@ class ViewController: UIViewController, PlayingCardObserver {
             } else {
                 cardView.playingCardView(rank: 0, suit: "?")
             }
-            cardBehavior.addOtherBehavior(cardView)
-            cardBehavior.addPushBehavior(cardView)
+            cardBehavior.addItem(view: cardView)
         }
     }
 
@@ -66,8 +65,8 @@ class ViewController: UIViewController, PlayingCardObserver {
                 // cards did not
                 faceUpCards.filter { $0.faceUp }.forEach { cardView in
                     cardView.faceUp = false
-                    // below does not work if done from view, need to check why?
-                    cardBehavior.addPushBehavior(cardView)
+                    // add behavior back, if cards do not match
+                    cardBehavior.addItem(view: cardView)
                 }
             }
         }
@@ -87,6 +86,10 @@ class ViewController: UIViewController, PlayingCardObserver {
     
     func isAnimationRunning() -> Bool {
         return runningAnimtationCount > 0 ? true : false
+    }
+    
+    func removeBehavior(view: UIView) {
+        cardBehavior.removeItem(view: view)
     }
 }
 
