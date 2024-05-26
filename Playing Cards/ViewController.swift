@@ -59,13 +59,13 @@ class ViewController: UIViewController, PlayingCardObserver {
             if faceUpCards[0].rank == faceUpCards[1].rank {
                 // cards matched
                 faceUpCards.filter { $0.faceUp }.forEach { cardView in
-                    cardView.matched    = true
-                    cardView.faceUp     = false
+                    cardView.matched = true
+                    cardView.faceUp = false
                 }
             } else {
                 // cards did not
                 faceUpCards.filter { $0.faceUp }.forEach { cardView in
-                    cardView.faceUp     = false
+                    cardView.faceUp = false
                     // below does not work if done from view, need to check why?
                     cardBehavior.addPushBehavior(cardView)
                 }

@@ -19,9 +19,8 @@ class PlayingCardView: UIView {
     
     struct AnimationConst {
         static let transitionTime: Double  = 0.60
-        static let animationTime: Double   = 0.75
-        static let bigScale: CGFloat       = 1.2
-        static let smallScale: CGFloat     = 0.1
+        static let scaleUp: CGFloat       = 3.0
+        static let scaleDown: CGFloat     = 0.1
     }
     
     private var cornerRadius: CGFloat {
@@ -55,34 +54,56 @@ class PlayingCardView: UIView {
     @IBInspectable var suit = "❤️" { didSet { setNeedsDisplay(); setNeedsLayout() } }
     @IBInspectable var faceUp = false {
         didSet {
-            UIView.transition(with: self, duration: PlayingCardView.AnimationConst.transitionTime, options: [.transitionFlipFromLeft], animations: {
-                self.controller?.animationStarted()
-                self.setNeedsDisplay()
-                self.setNeedsLayout()
-            }, completion: { _ in
-                self.controller?.animationFinished()
-                if self.faceUp {
-                    self.controller?.cardFlipped()
-                }
-            })
-        }
-    }
-    var matched = false {
-        didSet {
-            if matched {
-                UIViewPropertyAnimator.runningPropertyAnimator(withDuration: PlayingCardView.AnimationConst.animationTime, delay: 0, options: [], animations: {
+            if !matched {
+                UIView.transition(with: self, duration: PlayingCardView.AnimationConst.transitionTime, options: [.transitionFlipFromLeft], animations: {
                     self.controller?.animationStarted()
-                    self.alpha      = 0
                     self.setNeedsDisplay()
                     self.setNeedsLayout()
                 }, completion: { _ in
-                    self.isHidden   = self.matched
-                    // clearing up the changes, optional code
-                    self.alpha      = 1
                     self.controller?.animationFinished()
+                    if self.faceUp {
+                        self.controller?.cardFlipped()
+                    }
                 })
-            } else {
-                self.isHidden       = self.matched
+            }
+        }
+    }
+    var matched = false {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + PlayingCardView.AnimationConst.transitionTime) {
+        didSet {
+            if matched {
+//                TODO: scale animation not working properly in both approach
+                
+//                UIView.animate(withDuration: PlayingCardView.AnimationConst.transitionTime, animations: {
+//                    self.controller?.animationStarted()
+//                    self.transform = CGAffineTransform(scaleX: PlayingCardView.AnimationConst.scaleUp, y: PlayingCardView.AnimationConst.scaleUp)
+//                }, completion: { _ in
+//                    UIView.animate(withDuration: PlayingCardView.AnimationConst.transitionTime, animations: {
+//                        self.transform = CGAffineTransform(scaleX: PlayingCardView.AnimationConst.scaleDown, y: PlayingCardView.AnimationConst.scaleDown)
+//                        self.alpha = 0
+//                    }, completion: { _ in
+//                        self.isHidden = self.matched
+//                        // clearing up the changes, optional code
+//                        self.transform = CGAffineTransform.identity
+//                        self.alpha = 1
+//                        self.controller?.animationFinished()
+//                    })
+//                })
+                UIViewPropertyAnimator.runningPropertyAnimator(withDuration: PlayingCardView.AnimationConst.transitionTime, delay: 0, options: [], animations: {
+                    self.controller?.animationStarted()
+                    self.transform = CGAffineTransform.identity.scaledBy(x: PlayingCardView.AnimationConst.scaleUp, y: PlayingCardView.AnimationConst.scaleUp)
+                }, completion: { _ in
+                    UIViewPropertyAnimator.runningPropertyAnimator(withDuration: PlayingCardView.AnimationConst.transitionTime, delay: 0, options: [], animations: {
+                        self.transform = CGAffineTransform.identity.scaledBy(x: PlayingCardView.AnimationConst.scaleDown, y: PlayingCardView.AnimationConst.scaleDown)
+                        self.alpha = 0
+                    }, completion: { _ in
+                        self.isHidden = self.matched
+                        // clearing up the changes, optional code
+                        self.transform = CGAffineTransform.identity
+                        self.alpha = 1
+                        self.controller?.animationFinished()
+                    })
+                })
             }
         }
     }
